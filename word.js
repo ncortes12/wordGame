@@ -8,15 +8,14 @@ function word(word) {
   this.strArr = [];
   this.wordLetter = function () {
     var splitWord = word.split("");
-    // console.log(splitWord);
+    
     for (var i = 0; i < splitWord.length; i++) {
       this.letters.push(new Letter(splitWord[i]));
-      // console.log(splitWord[i])
-      // console.log(this.letters);
+     
       this.strArr.push("_");
 
     }
-    // console.log(this.strArr.join(" "));
+   
 
   }
 

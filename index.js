@@ -1,9 +1,10 @@
 var Word = require("./word");
 var inquirer = require('inquirer')
 
-var makeWord = ["CROW", "KHALEESI", "MAESTER", "RAVEN"]
+var makeWord = ["CROW", "KHALEESI", "MAESTER", "RAVEN" , "WINTER", "DRAGON" , "THRONE"]
 var gameWord = "";
-
+var wins = 0;
+var looses = 0;
 var count = 0;
 var turns = 10;
 var checkWord = "";
@@ -46,11 +47,13 @@ function playGame() {
             var gameWordCheck = gameWord.strArr.join("");
            
             if (gameWordCheck === checkWord) {
-                  console.log("you win!")
+                    wins ++;
+                  console.log("you win!" + "\nWins: " + wins + "\nLooses: " + looses)
                   playAgain();
             }
             else if (turns === 0){
-                console.log("ahh sorry you loose")
+                        looses ++;
+                console.log("ahh sorry you loose" + + "\nWins: " + wins + "\nLooses: " + looses)
                 playAgain();
             }
             else if (count < 10){
@@ -69,6 +72,7 @@ function playAgain (){
     }])
     .then(function(inquirerResponse){
         turns = 10;
+        count = 0;
         if (inquirerResponse.confirm){
             game();
         }
